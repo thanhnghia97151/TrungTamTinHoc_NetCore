@@ -33,6 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "WebApp1/1.0.0": {
         "dependencies": {
+          "HtmlAgilityPack": "1.11.39",
           "Microsoft.EntityFrameworkCore": "5.0.11",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.11",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
@@ -325,6 +326,17 @@
         },
         "compile": {
           "WebApp1.dll": {}
+        }
+      },
+      "HtmlAgilityPack/1.11.39": {
+        "runtime": {
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {
+            "assemblyVersion": "1.11.39.0",
+            "fileVersion": "1.11.39.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {}
         }
       },
       "Humanizer.Core/2.2.0": {
@@ -3927,6 +3939,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "HtmlAgilityPack/1.11.39": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9xk8l+68NaHe3RmfzAOO0A5DcotDO4lAilUnmZpu6h/EpBCfDVrxr7aNClIGK/p3vPiypVzpUCENm72UKfIVjg==",
+      "path": "htmlagilitypack/1.11.39",
+      "hashPath": "htmlagilitypack.1.11.39.nupkg.sha512"
     },
     "Humanizer.Core/2.2.0": {
       "type": "package",

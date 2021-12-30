@@ -5,7 +5,12 @@
       "ProjectGuid": "207e767e-46c3-4a0a-b1ef-67cd828f2700",
       "DisplayName": "WebApp1",
       "ColorIndex": 0
+    },
+    "4341d074-f7d3-4d05-8df8-cb8ee460d8cb": {
+      "ProjectGuid": "4341d074-f7d3-4d05-8df8-cb8ee460d8cb",
+      "DisplayName": "BasicGeneticAlgorithm",
+      "ColorIndex": 1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 2
 }

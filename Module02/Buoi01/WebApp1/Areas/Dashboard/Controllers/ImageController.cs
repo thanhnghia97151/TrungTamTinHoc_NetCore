@@ -8,6 +8,8 @@ using System.Net;
 using System.Threading.Tasks;
 using WebApp1.Controllers;
 using WebApp1.Models;
+using HtmlAgilityPack;
+
 
 namespace WebApp1.Areas.Dashboard.Controllers
 {
@@ -15,6 +17,90 @@ namespace WebApp1.Areas.Dashboard.Controllers
     public class ImageController : BaseController
     {
         public ImageController(SiteProvider provider) : base(provider) { }
+
+        public IActionResult DragAndDrop()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult DragAndDrop(IFormFile[] af)
+        {
+            if (af!=null)
+            {
+                string root = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
+                List<Image> list = new List<Image>();
+                foreach (IFormFile f in af)
+                {
+                    string extension = Path.GetExtension(f.FileName);
+                    string imageUrl = Helper.Helper.RandomString(32 - extension.Length) + extension;
+                    using (Stream stream = new FileStream(Path.Combine(root, imageUrl), FileMode.Create))
+                    {
+                        f.CopyTo(stream);
+                    }
+                    list.Add(new Image
+                    {
+                        Id = Guid.NewGuid(),
+                        Original = f.FileName,
+                        Size = f.Length,
+                        Url = imageUrl,
+                        Type = f.ContentType
+                    });
+
+                }
+                return Json(provider.Image.Add(list));
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        public IActionResult WebCam(string f)
+        {
+            byte[] bytes = Convert.FromBase64String(f);
+            string fileName = Helper.Helper.RandomString(28) + ".png";
+            string path = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot","images",fileName);
+            using(Stream stream = new FileStream(path, FileMode.Create))
+            {
+                stream.Write(bytes, 0, bytes.Length);
+            }
+            Image image = new Image
+            {
+                Id = Guid.NewGuid(),
+                Original = fileName,
+                Url = fileName,
+                Size = bytes.Length,
+                Type = "image/png"
+            };
+            return Json(provider.Image.Add(image));
+            //return Redirect("/dashboard/image");
+
+        }
+        public IActionResult WebCam()
+        {
+            return View();
+        }
+        public IActionResult DownloadCSV()
+        {
+            if (HttpContext.Request.Method == "POST")
+            {
+                HtmlWeb web = new HtmlWeb();
+                HtmlDocument doc =  web.Load("https://www.biz.uiowa.edu/faculty/jledolter/DataMining/datatext.html");
+                HtmlNodeCollection nodes = doc.DocumentNode.SelectNodes("//ul/li/a");
+                List<string> list = new List<string>();
+                foreach (HtmlNode node in nodes)
+                {
+                    list.Add(node.GetAttributeValue("href", null));
+                    string root = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot","data");
+                    string url = node.GetAttributeValue("href", null);
+                    using(WebClient client = new WebClient())
+                    {
+                        client.DownloadFile(Path.Combine("https://www.biz.uiowa.edu/faculty/jledolter/DataMining", url), Path.Combine(root, url));
+                    }
+
+                }
+                return View(list);
+            }
+            return View();
+        }
         
         public IActionResult WebUrl()
         {

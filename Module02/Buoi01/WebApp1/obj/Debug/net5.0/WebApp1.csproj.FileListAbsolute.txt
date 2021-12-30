@@ -207,3 +207,7 @@ D:\TrungTamTinHoc_DHKH-TN\Module02\Buoi01\WebApp1\obj\Debug\net5.0\Razor\Areas\D
 D:\TrungTamTinHoc_DHKH-TN\Module02\Buoi01\WebApp1\obj\Debug\net5.0\Razor\Areas\Dashboard\Views\Category\Create.cshtml.g.cs
 D:\TrungTamTinHoc_DHKH-TN\Module02\Buoi01\WebApp1\obj\Debug\net5.0\Razor\Areas\Dashboard\Views\Category\Edit.cshtml.g.cs
 D:\TrungTamTinHoc_DHKH-TN\Module02\Buoi01\WebApp1\obj\Debug\net5.0\Razor\Views\Menu\Index.cshtml.g.cs
+D:\TrungTamTinHoc_DHKH-TN\Module02\Buoi01\WebApp1\bin\Debug\net5.0\HtmlAgilityPack.dll
+D:\TrungTamTinHoc_DHKH-TN\Module02\Buoi01\WebApp1\obj\Debug\net5.0\Razor\Areas\Dashboard\Views\Image\DownloadCSV.cshtml.g.cs
+D:\TrungTamTinHoc_DHKH-TN\Module02\Buoi01\WebApp1\obj\Debug\net5.0\Razor\Areas\Dashboard\Views\Image\WebCam.cshtml.g.cs
+D:\TrungTamTinHoc_DHKH-TN\Module02\Buoi01\WebApp1\obj\Debug\net5.0\Razor\Areas\Dashboard\Views\Image\DragAndDrop.cshtml.g.cs
