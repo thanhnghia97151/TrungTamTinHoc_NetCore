@@ -97,23 +97,30 @@
             processData: false,
             success: (d) => {
                 //console.log(d);
-                $(sheet).append(`
-                                    <tr>
-                                          <td>${d['id']}</td>
-                                            <td>${d['original']}</td>
-                                            <td>
-                                                <img width="70" src="/images/${d['url']}" />
-                                            </td>
-                                            <td>${d['type']}</td>
-                                            <td>${d['size']}</td>
-                                            <td>
-                                                <a href="/dashboard/image/delete/${d['id']}">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
 
-                                    </tr>
-                                `);
+                // Khi sử dụng return Json(provider.Image.Add()) thì sử dụng cái này
+                if(d==1){
+                    window.location.reload();
+                }
+
+                // Khi retrun json(image) thì sử dụng cái này
+                //$(sheet).append(`
+                //                    <tr>
+                //                          <td>${d['id']}</td>
+                //                            <td>${d['original']}</td>
+                //                            <td>
+                //                                <img width="70" src="/images/${d['url']}" />
+                //                            </td>
+                //                            <td>${d['type']}</td>
+                //                            <td>${d['size']}</td>
+                //                            <td>
+                //                                <a href="/dashboard/image/delete/${d['id']}">
+                //                                    <i class="fas fa-trash"></i>
+                //                                </a>
+                //                            </td>
+
+                //                    </tr>
+                //                `);
                 $(myModal).modal('hide');
             }
         });

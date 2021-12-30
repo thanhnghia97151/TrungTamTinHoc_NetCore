@@ -76,8 +76,8 @@ namespace WebApp1.Areas.Dashboard.Controllers
                     Size = f.Length,
                     Type = f.ContentType
                 };
-                provider.Image.Add(image);
-                return Json(image);
+                return Json(provider.Image.Add(image));// Trả về trạng thái 0 hoặc 1
+                //return Json(image); // Trả về ảnh
 
             }
             return NotFound();

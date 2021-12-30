@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "UY6P+bIAEnhJekJlUtRc+mTXTiLJh/qonBsAOROY434rNzGXXnCq1u0Lfc/OG2x24G1Ydhy87fDLB47wrYSk4g==",
+  "dgSpecHash": "gTGaU/RTm0MdZRQ3GRCHHLc5AcI9g5NMFFvVasWZP+D8J6NLLPJB7jCyRJDtzeW2SyqvrBGUpX/52Hefxu+LbQ==",
   "success": true,
   "projectFilePath": "D:\\TrungTamTinHoc_DHKH-TN\\Module02\\Buoi01\\BasicGeneticAlgorithm\\BasicGeneticAlgorithm.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ThanhNghiaPC\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512",
+    "C:\\Users\\ThanhNghiaPC\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\ThanhNghiaPC\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\ThanhNghiaPC\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
