@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31727.386
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp1", "WebApp1\WebApp1.csproj", "{207E767E-46C3-4A0A-B1EF-67CD828F2700}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicGeneticAlgorithm", "BasicGeneticAlgorithm\BasicGeneticAlgorithm.csproj", "{4341D074-F7D3-4D05-8DF8-CB8EE460D8CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicGeneticAlgorithm", "BasicGeneticAlgorithm\BasicGeneticAlgorithm.csproj", "{4341D074-F7D3-4D05-8DF8-CB8EE460D8CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

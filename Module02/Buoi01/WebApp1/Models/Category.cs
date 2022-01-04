@@ -14,6 +14,7 @@ namespace WebApp1.Models
         [Column("CategoryName")]
         public string Name { get; set; }
         public int? ParentId { get; set; }
+
         [ForeignKey("ParentId")]
         public List<Category> Children { get; set; }
     }

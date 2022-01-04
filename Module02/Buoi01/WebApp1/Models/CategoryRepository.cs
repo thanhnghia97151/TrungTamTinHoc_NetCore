@@ -11,7 +11,9 @@ namespace WebApp1.Models
         public CategoryRepository(CSContext context) : base(context) { }
         public List<Category> GetCategories()
         {
-            return context.Categories.ToList();
+            
+            return context.Categories.Select(p=>new Category { Id = p.Id,Name=p.Name,ParentId=p.ParentId}).ToList();
+            //return context.Categories.FromSqlRaw<Category>("select * from Category").ToList();
         }
         public int Add(Category obj)
         {
