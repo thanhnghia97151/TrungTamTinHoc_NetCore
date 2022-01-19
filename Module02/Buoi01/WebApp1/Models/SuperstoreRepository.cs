@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApp1.Models
 {
     public class SuperstoreRepository:BaseRepository
     {
         public SuperstoreRepository(CSContext context) : base(context) { }
+        public List<Statistic> StatisticSalesByRegion()
+        {
+            return context.Statistics.FromSqlRaw<Statistic>("exec StatisticSalesByRegion").ToList();
+        }
         public List<Superstore> GetProductById(string id)
         {
             return context.Superstores.Where(p => p.ProductId == id).ToList();

@@ -191,6 +191,13 @@ create table Superstore
 	Profit decimal(10,2)
 )
 select * from Superstore
+
+create proc StatisticSalesByRegion
+as
+	select Region as Name,Sum(Sales) as Total from Superstore group by Region;
+go
+exec StatisticSalesByRegion;
+go
 /*public int RowId { get; set; }
         public string OrderId { get; set; }
         public DateTime OrderDate { get; set; }
@@ -229,4 +236,10 @@ create table Category
 	CategoryName nvarchar(64) not null,
 	ParentId int references Category(CategoryId)
 )
-
+drop table Pdf;
+create table TestPdf(
+	PdfId int not null primary key identity(1,1),
+	PdfUrl varchar(32) not null,
+	PdfSize bigint not null
+);
+select * from Pdf

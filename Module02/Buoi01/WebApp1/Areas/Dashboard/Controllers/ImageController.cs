@@ -17,7 +17,69 @@ namespace WebApp1.Areas.Dashboard.Controllers
     public class ImageController : BaseController
     {
         public ImageController(SiteProvider provider) : base(provider) { }
-
+        string Root => Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
+        public IActionResult Clipboard()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Clipboard(IFormFile f)
+        {
+            if(f != null )
+            {
+                string ext = Path.GetExtension(f.FileName);
+                string url = Helper.Helper.RandomString(32 - ext.Length) + ext;
+                using (Stream stream = new  FileStream(Path.Combine(Root, url), FileMode.Create))
+                {
+                    f.CopyTo(stream);
+                }
+                return Json(provider.Image.Add(new Image
+                {
+                    Id=Guid.NewGuid(),
+                    Original = f.FileName,
+                    Size = f.Length,
+                    Type= f.ContentType,
+                    Url = url
+                }));
+                 
+            }
+            return NotFound();
+        }
+        public IActionResult Folder()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Folder(IFormFile[] tf)
+        {
+            string root = Root;
+            List<Image> list = new List<Image>();
+            foreach (IFormFile item in tf)
+            {
+                string folder = Path.GetDirectoryName(item.FileName);
+                string dir = Path.Combine(root, folder);
+                if (!Directory.Exists(dir))
+                {
+                    Directory.CreateDirectory(dir);
+                }
+                string ext = Path.GetExtension(item.FileName);
+                string imageUrl =folder + "/" + Helper.Helper.RandomString(32 - ext.Length - folder.Length-1)+ext;
+                using(Stream stream = new FileStream(imageUrl, FileMode.Create))
+                {
+                    item.CopyTo(stream);
+                }
+                list.Add(new Image
+                {
+                    Id = Guid.NewGuid(),
+                    Original = item.FileName,
+                    Size = item.Length,
+                    Type = item.ContentType,
+                    Url = imageUrl
+                });
+            }
+            provider.Image.Add(list);
+            return Redirect("/dashboard/image");
+        }
         public IActionResult DragAndDrop()
         {
             return View();

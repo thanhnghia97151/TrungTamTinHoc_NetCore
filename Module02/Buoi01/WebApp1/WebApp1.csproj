@@ -16,6 +16,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\data\" />
     <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\pdfs\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +24,10 @@
     <None Include="wwwroot\js\bootstrap.min.js" />
     <None Include="wwwroot\js\bootstrap.min.js.map" />
     <None Include="wwwroot\js\jquery-3.6.0.min.js" />
+    <None Include="wwwroot\js\jquery-ui.js" />
+    <None Include="wwwroot\js\jquery-ui.min.js" />
+    <None Include="wwwroot\js\jquery.dataTables.min.js" />
+    <None Include="wwwroot\js\scripts.js" />
   </ItemGroup>
 
 </Project>

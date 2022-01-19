@@ -24,6 +24,19 @@ namespace WebApp1.Models
         public SuperstoreRepository superstore;
         public ImageRepository image;
         public CategoryRepository category;
+        public PdfRepository pdf;
+
+        public PdfRepository Pdf 
+        {
+            get
+            {
+                if (pdf is null)
+                {
+                    pdf = new PdfRepository(context);
+                }
+                return pdf;
+            }
+        }
         public CategoryRepository Category
         {
             get
